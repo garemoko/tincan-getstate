@@ -1,0 +1,138 @@
+<!--
+=============COPYRIGHT============
+State getter
+Copyright (C) 2013 Andrew Downes
+
+License: Apacahe 2.0
+
+=============DEVELOPMENT STATUS============
+This software is currently in development and is NOT intended to be used
+in a live situation.
+
+-->
+<!doctype html>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<html>
+	<head>
+		
+		<meta name="viewport" content="width=600, initial-scale=1">
+		<title>I Got State</title>
+		<link rel="stylesheet" href="tinstatement.css" type="text/css" />
+		<!-- jquery  
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
+		<script src="js-lib/jquery-1.7.1.min.js"></script>
+
+		<!-- Rustici's Tin Can functions - call these to access the Tin Can API-->
+		<script src="js-lib/tincan-min.js"></script>
+
+		<!-- Base64 
+		<script src="http://tin-can-can.googlecode.com/files/base64.js"></script>-->
+		<script src="js-lib/base64.js"></script>
+
+		<!-- generic functions used for capturing all or part of a statement with a web form (relies on certain HTML) -->
+		<script src="TinFormFunctions.js"></script>
+		<!-- main js file for this wrapper -->
+		<script src="TinState.js"></script>
+
+	</head>
+	<body >
+
+		<h1>State getter</h1>
+		<p>
+			Insert intro here
+		</p>
+
+		<!-- <input type="button" value="Build URL" name="btnSave" id="templateURL" class="button"/>
+		Navigate to a bookmarkable URL that autofills the above by querystring - only visible when Bookmark is not -->
+		<!-- <input type="button" value="Bookmark" name="btnBookmark" id="templateURL" class="button"/>
+		Bookmarks the saved page - only visible if page contains autofuilled fields. Hide when any field is changed.  -->
+
+		<div class="section" id="lrs">
+			<div class="background_div sevenEM">
+				Dear LRS,
+			</div>
+			<h2>The LRS</h2>
+			<p>
+				Your LRS should provide the following information:
+			</p>
+
+		</div>
+
+		<input type="button" value="+LRS" name="lrsLrsAdd" id="lrsLrsAdd" class="button" />
+		<!--Add a blank LRS at the bottom-->
+		<input type="button" value="-LRS" name="lrsLrsRemove" id="lrsLrsRemove" class="button displayNone"/>
+		<!--Removes the first blank field (not neccessarily the bottom field)-->
+
+		<div class="section" id="actor">
+			<div class="background_div">
+				I
+			</div>
+
+			<h2>Actor</h2>
+			<p>
+				Who is the state for?
+			</p>
+
+			<table>
+				<tr>
+					<td class="label">objectType:</td>
+					<td>
+					<select name="actorObjectType" id="actorObjectType" class="required objectType">
+						<option value="Agent">Agent</option>
+						<option value="Group">Group</option>
+					</select></td>
+				</tr>
+			</table>
+			
+			<div id="actorAgent">
+				<h3>Agent</h3>
+			</div>
+			
+			<input type="button" value="+Agent" name="actorAgentAdd" id="actorAgentAdd" class="button displayNone agentAdd" />
+			<!--Add a blank actor at the bottom-->
+			<input type="button" value="-Agent" name="actorAgentRemove" id="actorAgentRemove" class="button displayNone agentRemove"/>
+			<!--Removes the first blank field (not neccessarily the bottom field)-->
+		</div>
+		
+		
+
+		<div class="section" id="object">
+			<div class="background_div">
+				This
+			</div>
+
+			<h2>State</h2>
+			<p>
+				Which document?
+			</p>
+			<table>
+			<tr>
+				<td class="label">Activity id:</td>
+				<td>
+				<input type="text" name="activityId" id="activityId" class="required activityId" />
+				</td>
+			</tr>
+			<tr>
+				<td class="label">Registration:</td>
+				<td>
+				<input type="text" name="registration" id="registration" class="registration" />
+				</td>
+			</tr>
+			<tr>
+				<td class="label">Key:</td>
+				<td>
+				<input type="text" name="key" id="key" class="required key" />
+				</td>
+			</tr>
+		</table>
+		</div>
+		
+
+
+<input type="button" value="Get!" name="getState" id="getState" class="button"/>
+
+		<noscript>
+			This course requires JavaScript to be enabled in your browser. Please enable JavaScript, then relaunch the course.
+		</noscript>
+	</body>
+</html>
